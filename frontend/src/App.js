@@ -1,6 +1,6 @@
 import './App.css';
 import logo from './logo.svg';
-
+import FileUploader from './components/FileUploader';
 function App() {
   return (
     <div className="App">
@@ -18,6 +18,12 @@ function App() {
           Learn React
         </a>
       </header>
+    </div>
+  );
+  
+  return (
+    <div className="App">
+      <FileUploader />
     </div>
   );
 }
