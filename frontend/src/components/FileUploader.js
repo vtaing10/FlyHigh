@@ -78,7 +78,7 @@ export default function FileUploader() {
     return (
       <div className ="load-state">
         <div className="space-y-4">
-            {/* ✅ File Upload Input (Accepts Images & Videos) */}
+            {/*  File Upload Input (Accepts Images & Videos) */}
             <input type="file" id="plus" style ={{display:'none'}} accept="image/jpeg,image/png,video/mp4,video/avi,video/mov" onChange={handleFileChange} />
             <label htmlFor="plus" className="sqaure-label">
                 <div className="square">
@@ -86,18 +86,11 @@ export default function FileUploader() {
                     <div className="plus vertical"></div>
                 </div>
             </label>
-              {/* ✅ Text Box Underneath */}
+              {/* Text Box Underneath */}
         <div id="add-image-text">Import The Best Cloud Image You Have</div>
 
             
 
-            {/* {file && (
-                <div className="mb-4 text-sm">
-                    <p><strong>File name:</strong> {file.name}</p>
-                    <p><strong>Size:</strong> {(file.size / 1024 / 1024).toFixed(2)} MB</p>
-                    <p><strong>Type:</strong> {file.type}</p>
-                </div>
-            )} */}
 
             {status === "uploading" && (
                 <div className="loading-container">
@@ -126,11 +119,11 @@ export default function FileUploader() {
             {prediction && (
                 <div className="stat">
                   {status === "success" && <p >File uploaded successfully!</p>}
+                  {file && <p className="file-name">Selected file: {file.name}</p>}
                   {status === "error" && <p >Error uploading file</p>}
                     <p><strong>Prediction:</strong> {prediction.predicted_class}</p>
                     <p><strong>Confidence:</strong> {prediction.confidence}</p>
                     <p className="mt-2"><strong>Description:</strong>
-                    {file && <p className="file-name">Selected file: {file.name}</p>}
  {
       (() => {
         if (prediction.predicted_class === "St") {
