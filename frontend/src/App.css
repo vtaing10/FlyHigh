@@ -1,17 +1,16 @@
 
+/* Import the font */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/*to center the page*/
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
+/*background*/
 .App {
   background: linear-gradient(to bottom, #81d4fa 30%, #ffffff 70%);
   text-align: center;
@@ -20,83 +19,193 @@
   padding: 0%;
 }
 
-body {
-  margin: 0;
-  padding: 0%;
-}
-
-.App-header {
-  background-color:transparent;
-  min-height: 100vh;
+/************************************************* HEADER ******************************************************************/
+.FlyHigh {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: rgb(255, 255, 255);
-}
+  font-size: 120px;
+  font-family: 'Pacifico', cursive; /* Soft, playful font */
+  color: white; /* Main text color */
+  letter-spacing: 2px;
+  margin-top: 20px;
 
-.FlyHigh {
-  text-align: center; /* Centers the text horizontally */
-  margin: 0 auto; /* Ensures proper centering in its container */
-  font-size: 100px; /* Optional: Adjust font size */
-  font-weight: bold; /* Optional: Make the text bold */
-  color: #000000;
-  padding-bottom: 5%;
-}
+  /* ✅ Thick Dark Blue Contour */
+  text-shadow: 
+    -4px -4px 0 #002366,  
+    6px 9px 0 #002366,
 
-
-.App-link {
-  color: #61dafb;
-}
-
-header h1 {
-  text-align: center;
+    /* ✅ Faded Dark Blue Shadow */
+    0px 10px 20px rgba(0, 35, 102, 0.5), /* Soft blue glow */
+    0px 20px 40px rgba(0, 35, 102, 0.3); /* Even softer fade */
 }
 
 
-/* Square Container */
+
+
+
+
+
+
+/************************************************* SQUARE CONTAINER ******************************************************************/
+/* Upload Box - Centered & Styled Like FlyHigh */
 .square {
-  position: relative; /* Allows positioning of the plus lines inside */
-  width: 100px; /* Size of the square */
-  height: 100px;
-  background-color: #81d4fa; /* Light blue color for the square */
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px; /* Increased size */
+  height: 200px;
+  background-color: #4285F4; /* Matching FlyHigh theme */
   display: flex;
-  justify-content: center; /* Centers the plus sign horizontally */
-  align-items: center; /* Centers the plus sign vertically */
-  margin: 20px auto; /* Center the square horizontally on the page */
-  border-radius: 24px; /* Optional: Add rounded corners */
-  border: 3px solid #000000; /* Optional: Border for the square */
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px; /* Smooth rounded corners */
+  border: 5px solid #002366; /* Dark blue border */
+  box-shadow: 0px 10px 20px rgba(0, 35, 102, 0.5); /* Soft shadow effect */
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* Hover Effect - Scale & Glow */
+.square {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px; /* Increased size */
+  height: 200px;
+  background-color: #4285F4; /* Matching FlyHigh theme */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px; /* Smooth rounded corners */
+  border: 5px solid #002366; /* Dark blue border */
+  box-shadow: 0px 10px 20px rgba(0, 35, 102, 0.5); /* Soft shadow effect */
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* Hover Effect - Scale & Glow */
+.square:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  background-color: #306bbf;
+  box-shadow: 0px 15px 30px rgba(0, 35, 102, 0.7);
 }
 
 /* Horizontal Line of the Plus Sign */
 .plus.horizontal {
-  position: absolute; /* Position it relative to the square */
-  width: 60%; /* Width of the horizontal bar */
-  height: 10%; /* Thickness of the horizontal bar */
-  background-color: #000000; /* Color of the plus sign */
-  top: 50%; /* Center vertically */
+  position: absolute;
+  width: 70%; /* Increased width */
+  height: 12%; /* Increased thickness */
+  background-color: white;
+  top: 50%;
   transform: translateY(-50%);
+  border-radius: 5px;
 }
 
 /* Vertical Line of the Plus Sign */
 .plus.vertical {
-  position: absolute; /* Position it relative to the square */
-  width: 10%; /* Thickness of the vertical bar */
-  height: 60%; /* Height of the vertical bar */
-  background-color: #000000; /* Color of the plus sign */
-  left: 50%; /* Center horizontally */
+  position: absolute;
+  width: 12%; /* Increased thickness */
+  height: 70%; /* Increased height */
+  background-color: white;
+  left: 50%;
   transform: translateX(-50%);
+  border-radius: 5px;
+}
+
+/************************************* TXT UNDERNEATH UPLOAD *************************************************/
+
+.square {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px; /* Increased size */
+  height: 200px;
+  background-color: #4285F4; /* Matching FlyHigh theme */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px; /* Smooth rounded corners */
+  border: 5px solid #002366; /* Dark blue border */
+  box-shadow: 0px 10px 20px rgba(0, 35, 102, 0.5); /* Soft shadow effect */
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* Hover Effect - Scale & Glow */
+.square:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  background-color: #306bbf;
+  box-shadow: 0px 15px 30px rgba(0, 35, 102, 0.7);
+}
+
+/* Horizontal Line of the Plus Sign */
+.plus.horizontal {
+  position: absolute;
+  width: 70%; /* Increased width */
+  height: 12%; /* Increased thickness */
+  background-color: white;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 5px;
+}
+
+/* Vertical Line of the Plus Sign */
+.plus.vertical {
+  position: absolute;
+  width: 12%; /* Increased thickness */
+  height: 70%; /* Increased height */
+  background-color: white;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+}
+
+/* Text Box Underneath the Square */
+.add-image-text {
+  position: absolute;
+  top: calc(50% + 130px); /* Positioned below the square */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  font-size: 22px;
+  font-family: 'Pacifico', cursive;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 3px solid #002366;
+  box-shadow: 0px 5px 10px rgba(0, 35, 102, 0.3);
+  transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Rainbow Hover Effect for Border */
+@keyframes rainbow {
+  0% { border-color: red; }
+  16% { border-color: orange; }
+  32% { border-color: yellow; }
+  48% { border-color: green; }
+  64% { border-color: blue; }
+  80% { border-color: indigo; }
+  100% { border-color: violet; }
+}
+
+.add-image-text:hover {
+  animation: rainbow 1s infinite linear, rainbow-text 1s infinite linear;
+}
+
+/* Rainbow Effect for Text on Hover */
+@keyframes rainbow-text {
+  0% { color: red; }
+  16% { color: orange; }
+  32% { color: yellow; }
+  48% { color: green; }
+  64% { color: blue; }
+  80% { color: indigo; }
+  100% { color: violet; }
 }
 
 
 
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

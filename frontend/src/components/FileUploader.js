@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import './FileUploader.css';
 
 function SPLoader() {
   const [text, setText] = useState("Loading");
@@ -83,10 +84,12 @@ export default function FileUploader() {
                 <div className="square">
                     <div className="plus horizontal"></div>
                     <div className="plus vertical"></div>
-
                 </div>
-
             </label>
+              {/* ✅ Text Box Underneath */}
+        <div className="add-image-text">Import The Best Cloud Image You Have</div>
+
+            
 
             {file && (
                 <div className="mb-4 text-sm">
