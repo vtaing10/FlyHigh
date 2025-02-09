@@ -1,102 +1,257 @@
+/* Import the font */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App {
-  background: linear-gradient(to bottom, #81d4fa 30%, #ffffff 70%);
-  text-align: center;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0%;
-}
-
+/*to center the page*/
 body {
   margin: 0;
-  padding: 0%;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+
 }
 
-.App-header {
-  background-color:transparent;
-  min-height: 100vh;
+/*background*/
+.App {
+  background: linear-gradient(to bottom, #81d4fa 50%, #ffffff 70%);
+  text-align: center;
+  height: 100vh; /* Fixes the background movement */
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevents unwanted scrolling */
+  position: relative; /* Ensures elements stay inside */
+}
+
+
+
+
+/************************************************* HEADER ******************************************************************/
+.FlyHigh {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: rgb(255, 255, 255);
+  font-size: 120px;
+  font-family: 'Pacifico', cursive; /* Soft, playful font */
+  color: white; /* Main text color */
+  letter-spacing: 2px;
+  margin-top: 0px;
+
+  /* ✅ Thick Dark Blue Contour */
+  text-shadow: 
+    -4px -4px 0 #002366,  
+    6px 9px 0 #002366,
+
+    /* ✅ Faded Dark Blue Shadow */
+    0px 10px 20px rgba(0, 35, 102, 0.5), /* Soft blue glow */
+    0px 20px 40px rgba(0, 35, 102, 0.3); /* Even softer fade */
 }
 
-.FlyHigh {
-  text-align: center; /* Centers the text horizontally */
-  margin: 0 auto; /* Ensures proper centering in its container */
-  font-size: 100px; /* Optional: Adjust font size */
-  font-weight: bold; /* Optional: Make the text bold */
-  color: #000000;
-  padding-bottom: 5%;
-}
+/************************************************* SQUARE CONTAINER ******************************************************************/
 
-
-.App-link {
-  color: #61dafb;
-}
-
-header h1 {
-  text-align: center;
-}
-
-
-/* Square Container */
+/* Hover Effect - Scale & Glow */
 .square {
-  position: relative; /* Allows positioning of the plus lines inside */
-  width: 100px; /* Size of the square */
-  height: 100px;
-  background-color: #81d4fa; /* Light blue color for the square */
+  position: absolute;
+  top:38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10%; /* Increased size */
+  height: 18%;
+  background-color: #4285F4; /* Matching FlyHigh theme */
   display: flex;
-  justify-content: center; /* Centers the plus sign horizontally */
-  align-items: center; /* Centers the plus sign vertically */
-  margin: 20px auto; /* Center the square horizontally on the page */
-  border-radius: 24px; /* Optional: Add rounded corners */
-  border: 3px solid #000000; /* Optional: Border for the square */
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px; /* Smooth rounded corners */
+  border: 5px solid #002366; /* Dark blue border */
+  box-shadow: 0px 10px 20px rgba(0, 35, 102, 0.5); /* Soft shadow effect */
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* Hover Effect - Scale & Glow */
+.square:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  background-color: #306bbf;
+  box-shadow: 0px 15px 30px rgba(0, 35, 102, 0.7);
 }
 
 /* Horizontal Line of the Plus Sign */
 .plus.horizontal {
-  position: absolute; /* Position it relative to the square */
-  width: 60%; /* Width of the horizontal bar */
-  height: 10%; /* Thickness of the horizontal bar */
-  background-color: #000000; /* Color of the plus sign */
-  top: 50%; /* Center vertically */
-  transform: translateY(-50%);
+  position: absolute;
+  width: 50%; /* Takes half the width of the square */
+  height: 10%; /* Thickness */
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4px; /* Smoother edges */
 }
 
 /* Vertical Line of the Plus Sign */
 .plus.vertical {
-  position: absolute; /* Position it relative to the square */
-  width: 10%; /* Thickness of the vertical bar */
-  height: 60%; /* Height of the vertical bar */
-  background-color: #000000; /* Color of the plus sign */
-  left: 50%; /* Center horizontally */
+  position: absolute;
+  width: 10%; /* Thickness */
+  height: 50%; /* Takes half the height of the square */
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4px; /* Smoother edges */
+}
+
+/* Loading Component Positioning */
+.loading-container {
+  position: absolute;
+  top: calc(45% + 180px); /* Positioned below the add-image-text */
+  left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/************************************* TXT UNDERNEATH UPLOAD *************************************************/
+#add-image-text {
+  position: absolute; 
+  top: 53%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  font-size: 22px;
+  font-family: 'Pacifico', cursive;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 3px solid #002366;
+  box-shadow: 0px 5px 10px rgba(0, 35, 102, 0.3);
+  transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Rainbow Hover Effect for Border */
+@keyframes rainbow {
+  0% { border-color: red; }
+  16% { border-color: orange; }
+  32% { border-color: yellow; }
+  48% { border-color: green; }
+  64% { border-color: blue; }
+  80% { border-color: indigo; }
+  100% { border-color: violet; }
+}
+
+#add-image-text:hover {
+  animation: rainbow 1s infinite linear, rainbow-text 1s infinite linear;
+}
+
+/* Rainbow Effect for Text on Hover */
+@keyframes rainbow-text {
+  0% { color: red; }
+  16% { color: orange; }
+  32% { color: yellow; }
+  48% { color: green; }
+  64% { color: blue; }
+  80% { color: indigo; }
+  100% { color: violet; }
+}
+
+
+/************************************************* UPLOAD BUTTON ******************************************************************/
+
+/* Upload Button - Moved to Bottom Right */
+.Upload_Button {
+  position: fixed;
+  bottom: 20px;
+  font-family: 'Pacifico', cursive;
+  right: 20px;
+  width: 150px;
+  height: 50px;
+  background-color: #4285F4; /* Matching theme */
+  color: white;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #002366; /* Dark blue border */
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 35, 102, 0.4);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.Upload_Button:hover {
+  background-color: #306bbf;
+  transform: scale(1.1);
 }
 
 
 
 
-@keyframes App-logo-spin {
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(20px); /* Slight upward motion */
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+.stat {
+  position: relative;
+  margin-top: 350px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  width: 900px;
+  left: 20%;
+  opacity: 0; /* Hidden initially */
+  animation: fadeIn 1s ease-in-out forwards; /* Fade-in effect */
+}
+
+@keyframes greenRainbow {
+  0% { color: #006400; }   /* Dark Green */
+  10% { color: #008000; }  /* Green */
+  20% { color: #228B22; }  /* Forest Green */
+  30% { color: #32CD32; }  /* Lime Green */
+  40% { color: #00FF00; }  /* Pure Green */
+  50% { color: #7CFC00; }  /* Lawn Green */
+  60% { color: #ADFF2F; }  /* Green Yellow */
+  70% { color: #76B947; }  /* Fern Green */
+  80% { color: #2E8B57; }  /* Sea Green */
+  90% { color: #006A4E; }  /* Bottle Green */
+  100% { color: #006400; } /* Back to Dark Green */
+}
+
+.success-message {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  animation: greenRainbow 1.5s infinite linear;
+
+  
+}
+
+@keyframes redRainbow {
+  0% { color: #8B0000; }   /* Dark Red */
+  10% { color: #B22222; }  /* Firebrick */
+  20% { color: #DC143C; }  /* Crimson */
+  30% { color: #FF0000; }  /* Red */
+  40% { color: #FF4500; }  /* Orange Red */
+  50% { color: #FF6347; }  /* Tomato */
+  60% { color: #E32636; }  /* Alizarin Crimson */
+  70% { color: #CD5C5C; }  /* Indian Red */
+  80% { color: #A52A2A; }  /* Brown */
+  90% { color: #800000; }  /* Maroon */
+  100% { color: #8B0000; } /* Back to Dark Red */
+}
+
+.failure-message {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  animation: redRainbow 2s infinite linear;
+}
+
+
+
+
+

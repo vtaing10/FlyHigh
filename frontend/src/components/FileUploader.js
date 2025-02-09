@@ -14,7 +14,7 @@ function SPLoader() {
   }, []);
 
   return (
-    <div>
+    <div className="loader">
       {showImg ? (
         <img src="./spin.gif" alt="Loading..." />
       ) : (
@@ -76,6 +76,7 @@ export default function FileUploader() {
     }
 
     return (
+      <div className ="load-state">
         <div className="space-y-4">
             {/* ✅ File Upload Input (Accepts Images & Videos) */}
             <input type="file" id="plus" style ={{display:'none'}} accept="image/jpeg,image/png,video/mp4,video/avi,video/mov" onChange={handleFileChange} />
@@ -83,21 +84,23 @@ export default function FileUploader() {
                 <div className="square">
                     <div className="plus horizontal"></div>
                     <div className="plus vertical"></div>
-
                 </div>
-
             </label>
+              {/* ✅ Text Box Underneath */}
+        <div id="add-image-text">Import The Best Cloud Image You Have</div>
 
-            {file && (
+            
+
+            {/* {file && (
                 <div className="mb-4 text-sm">
                     <p><strong>File name:</strong> {file.name}</p>
                     <p><strong>Size:</strong> {(file.size / 1024 / 1024).toFixed(2)} MB</p>
                     <p><strong>Type:</strong> {file.type}</p>
                 </div>
-            )}
+            )} */}
 
             {status === "uploading" && (
-                <div className="space-y-2">
+                <div className="loading-container">
                     <SPLoader/> {/*Show the spinner while uploading*/}
                     <div className="h-2.5 w-full rounded-full bg-gray-200">
                         <div 
@@ -112,23 +115,57 @@ export default function FileUploader() {
             {file && status !== "uploading" && (
                 <button 
                     onClick={handleFileUpload}
-                    className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+                    className="Upload_Button"
                 >
                     Upload
                 </button>
             )}
 
-            {status === "success" && <p className="text-green-500">File uploaded successfully!</p>}
-            {status === "error" && <p className="text-red-500">Error uploading file</p>}
+            
 
             {prediction && (
-                <div className="mt-4 p-4 bg-gray-100 rounded-lg">
+                <div className="stat">
+                  {status === "success" && <p >File uploaded successfully!</p>}
+                  {status === "error" && <p >Error uploading file</p>}
                     <p><strong>Prediction:</strong> {prediction.predicted_class}</p>
                     <p><strong>Confidence:</strong> {prediction.confidence}</p>
-                    <p><strong>Frames Analyzed:</strong> {prediction.frames_analyzed}</p>
+                    <p className="mt-2"><strong>Description:</strong>
+                    {file && <p className="file-name">Selected file: {file.name}</p>}
+ {
+      (() => {
+        if (prediction.predicted_class === "St") {
+          return "Stratus - Low, gray, and featureless clouds that often bring drizzle.";
+        } else if (prediction.predicted_class === "Sc") {
+          return "Stratocumulus - Low, lumpy clouds that may bring light rain.";
+        } else if (prediction.predicted_class === "Ns") {
+          return "Nimbostratus - Thick, dark clouds that bring continuous rain or snow.";
+        } else if (prediction.predicted_class === "Cu") {
+          return "Cumulus - Puffy, white clouds that indicate fair weather.";
+        } else if (prediction.predicted_class === "Ct") {
+          return "Contrails - Thin, streak-like clouds formed by aircraft.";
+        } else if (prediction.predicted_class === "Cs") {
+          return "Cirrostratus - Thin, ice-crystal clouds covering the sky, often causing a halo effect.";
+        } else if (prediction.predicted_class === "Ci") {
+          return "Cirrus - Wispy, high-altitude clouds indicating fair weather but possibly a change coming.";
+        } else if (prediction.predicted_class === "Cc") {
+          return "Cirrocumulus - Small, white patches of clouds at high altitudes, often seen before storms.";
+        } else if (prediction.predicted_class === "Cb") {
+          return "Cumulonimbus - Towering clouds associated with thunderstorms and severe weather.";
+        } else if (prediction.predicted_class === "As") {
+          return "Altostratus - Gray or blue clouds covering the sky, often preceding precipitation.";
+        } else if (prediction.predicted_class === "Ac") {
+          return "Altocumulus - White or gray clouds in patches or layers, sometimes indicating a storm.";
+        } else {
+          return "Unknown cloud type.";
+        }
+      })()
+    }</p>
                 </div>
             )}
         </div>
+        </div>
     );
 }
+
+
 
