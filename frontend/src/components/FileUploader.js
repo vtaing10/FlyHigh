@@ -78,7 +78,15 @@ export default function FileUploader() {
     return (
         <div className="space-y-4">
             {/* ✅ File Upload Input (Accepts Images & Videos) */}
-            <input type="file" accept="image/jpeg,image/png,video/mp4,video/avi,video/mov" onChange={handleFileChange} />
+            <input type="file" id="plus" style ={{display:'none'}} accept="image/jpeg,image/png,video/mp4,video/avi,video/mov" onChange={handleFileChange} />
+            <label htmlFor="plus" className="sqaure-label">
+                <div className="square">
+                    <div className="plus horizontal"></div>
+                    <div className="plus vertical"></div>
+
+                </div>
+
+            </label>
 
             {file && (
                 <div className="mb-4 text-sm">
@@ -90,6 +98,7 @@ export default function FileUploader() {
 
             {status === "uploading" && (
                 <div className="space-y-2">
+                    <SPLoader/> {/*Show the spinner while uploading*/}
                     <div className="h-2.5 w-full rounded-full bg-gray-200">
                         <div 
                             className="h-2.5 rounded-full bg-blue-600 transition-all duration-300"
