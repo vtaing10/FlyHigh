@@ -1,23 +1,30 @@
-
 /* Import the font */
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-
 
 /*to center the page*/
 body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  overflow-y: hidden;
+
+
 }
 
 /*background*/
 .App {
-  background: linear-gradient(to bottom, #81d4fa 30%, #ffffff 70%);
+  background: linear-gradient(to bottom, #81d4fa 50%, #ffffff 70%);
   text-align: center;
-  min-height: 100vh;
+  height: 100vh; /* Fixes the background movement */
+  width: 100vw;
   margin: 0;
-  padding: 0%;
+  padding: 0;
+  overflow: hidden; /* Prevents unwanted scrolling */
+  position: relative; /* Ensures elements stay inside */
 }
+
+
+
 
 /************************************************* HEADER ******************************************************************/
 .FlyHigh {
@@ -28,7 +35,7 @@ body {
   font-family: 'Pacifico', cursive; /* Soft, playful font */
   color: white; /* Main text color */
   letter-spacing: 2px;
-  margin-top: 20px;
+  margin-top: 0px;
 
   /* ✅ Thick Dark Blue Contour */
   text-shadow: 
@@ -40,41 +47,16 @@ body {
     0px 20px 40px rgba(0, 35, 102, 0.3); /* Even softer fade */
 }
 
-
-
-
-
-
-
-
 /************************************************* SQUARE CONTAINER ******************************************************************/
-/* Upload Box - Centered & Styled Like FlyHigh */
-.square {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px; /* Increased size */
-  height: 200px;
-  background-color: #4285F4; /* Matching FlyHigh theme */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 40px; /* Smooth rounded corners */
-  border: 5px solid #002366; /* Dark blue border */
-  box-shadow: 0px 10px 20px rgba(0, 35, 102, 0.5); /* Soft shadow effect */
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-  cursor: pointer;
-}
 
 /* Hover Effect - Scale & Glow */
 .square {
   position: absolute;
-  top: 45%;
+  top:38%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 200px; /* Increased size */
-  height: 200px;
+  width: 10%; /* Increased size */
+  height: 18%;
   background-color: #4285F4; /* Matching FlyHigh theme */
   display: flex;
   justify-content: center;
@@ -96,78 +78,43 @@ body {
 /* Horizontal Line of the Plus Sign */
 .plus.horizontal {
   position: absolute;
-  width: 70%; /* Increased width */
-  height: 12%; /* Increased thickness */
+  width: 50%; /* Takes half the width of the square */
+  height: 10%; /* Thickness */
   background-color: white;
   top: 50%;
-  transform: translateY(-50%);
-  border-radius: 5px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4px; /* Smoother edges */
 }
 
 /* Vertical Line of the Plus Sign */
 .plus.vertical {
   position: absolute;
-  width: 12%; /* Increased thickness */
-  height: 70%; /* Increased height */
+  width: 10%; /* Thickness */
+  height: 50%; /* Takes half the height of the square */
   background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4px; /* Smoother edges */
+}
+
+/* Loading Component Positioning */
+.loading-container {
+  position: absolute;
+  top: calc(45% + 180px); /* Positioned below the add-image-text */
   left: 50%;
   transform: translateX(-50%);
-  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /************************************* TXT UNDERNEATH UPLOAD *************************************************/
-
-.square {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px; /* Increased size */
-  height: 200px;
-  background-color: #4285F4; /* Matching FlyHigh theme */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 40px; /* Smooth rounded corners */
-  border: 5px solid #002366; /* Dark blue border */
-  box-shadow: 0px 10px 20px rgba(0, 35, 102, 0.5); /* Soft shadow effect */
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-/* Hover Effect - Scale & Glow */
-.square:hover {
-  transform: translate(-50%, -50%) scale(1.1);
-  background-color: #306bbf;
-  box-shadow: 0px 15px 30px rgba(0, 35, 102, 0.7);
-}
-
-/* Horizontal Line of the Plus Sign */
-.plus.horizontal {
-  position: absolute;
-  width: 70%; /* Increased width */
-  height: 12%; /* Increased thickness */
-  background-color: white;
-  top: 50%;
-  transform: translateY(-50%);
-  border-radius: 5px;
-}
-
-/* Vertical Line of the Plus Sign */
-.plus.vertical {
-  position: absolute;
-  width: 12%; /* Increased thickness */
-  height: 70%; /* Increased height */
-  background-color: white;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 5px;
-}
-
-/* Text Box Underneath the Square */
-.add-image-text {
-  position: absolute;
-  top: calc(50% + 130px); /* Positioned below the square */
+#add-image-text {
+  position: absolute; 
+  top: 53%;
   left: 50%;
   transform: translateX(-50%);
   background-color: white;
@@ -191,7 +138,7 @@ body {
   100% { border-color: violet; }
 }
 
-.add-image-text:hover {
+#add-image-text:hover {
   animation: rainbow 1s infinite linear, rainbow-text 1s infinite linear;
 }
 
@@ -207,5 +154,57 @@ body {
 }
 
 
+/************************************************* UPLOAD BUTTON ******************************************************************/
+
+/* Upload Button - Moved to Bottom Right */
+.Upload_Button {
+  position: fixed;
+  bottom: 20px;
+  font-family: 'Pacifico', cursive;
+  right: 20px;
+  width: 150px;
+  height: 50px;
+  background-color: #4285F4; /* Matching theme */
+  color: white;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #002366; /* Dark blue border */
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 35, 102, 0.4);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.Upload_Button:hover {
+  background-color: #306bbf;
+  transform: scale(1.1);
+}
+
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Slight upward motion */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stat {
+  position: relative;
+  margin-top: 350px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  width: 900px;
+  left: 20%;
+  opacity: 0; /* Hidden initially */
+  animation: fadeIn 1s ease-in-out forwards; /* Fade-in effect */
+}
 
 

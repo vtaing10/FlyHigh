@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import './FileUploader.css';
 
 function SPLoader() {
   const [text, setText] = useState("Loading");
@@ -15,7 +14,7 @@ function SPLoader() {
   }, []);
 
   return (
-    <div>
+    <div className="loader">
       {showImg ? (
         <img src="./spin.gif" alt="Loading..." />
       ) : (
@@ -77,6 +76,7 @@ export default function FileUploader() {
     }
 
     return (
+      <div className ="load-state">
         <div className="space-y-4">
             {/* ✅ File Upload Input (Accepts Images & Videos) */}
             <input type="file" id="plus" style ={{display:'none'}} accept="image/jpeg,image/png,video/mp4,video/avi,video/mov" onChange={handleFileChange} />
@@ -87,20 +87,20 @@ export default function FileUploader() {
                 </div>
             </label>
               {/* ✅ Text Box Underneath */}
-        <div className="add-image-text">Import The Best Cloud Image You Have</div>
+        <div id="add-image-text">Import The Best Cloud Image You Have</div>
 
             
 
-            {file && (
+            {/* {file && (
                 <div className="mb-4 text-sm">
                     <p><strong>File name:</strong> {file.name}</p>
                     <p><strong>Size:</strong> {(file.size / 1024 / 1024).toFixed(2)} MB</p>
                     <p><strong>Type:</strong> {file.type}</p>
                 </div>
-            )}
+            )} */}
 
             {status === "uploading" && (
-                <div className="space-y-2">
+                <div className="loading-container">
                     <SPLoader/> {/*Show the spinner while uploading*/}
                     <div className="h-2.5 w-full rounded-full bg-gray-200">
                         <div 
@@ -115,21 +115,20 @@ export default function FileUploader() {
             {file && status !== "uploading" && (
                 <button 
                     onClick={handleFileUpload}
-                    className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+                    className="Upload_Button"
                 >
                     Upload
                 </button>
             )}
 
-            {status === "success" && <p className="text-green-500">File uploaded successfully!</p>}
-            {status === "error" && <p className="text-red-500">Error uploading file</p>}
+            
 
             {prediction && (
-                <div className="mt-4 p-4 bg-gray-100 rounded-lg">
+                <div className="stat">
+                  {status === "success" && <p >File uploaded successfully!</p>}
+                  {status === "error" && <p >Error uploading file</p>}
                     <p><strong>Prediction:</strong> {prediction.predicted_class}</p>
                     <p><strong>Confidence:</strong> {prediction.confidence}</p>
-                    <p><strong>Frames Analyzed:</strong> {prediction.frames_analyzed}</p>
-
                     <p className="mt-2"><strong>Description:</strong> {
       (() => {
         if (prediction.predicted_class === "St") {
@@ -162,6 +161,9 @@ export default function FileUploader() {
                 </div>
             )}
         </div>
+        </div>
     );
 }
+
+
 
