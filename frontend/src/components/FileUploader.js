@@ -129,7 +129,9 @@ export default function FileUploader() {
                   {status === "error" && <p >Error uploading file</p>}
                     <p><strong>Prediction:</strong> {prediction.predicted_class}</p>
                     <p><strong>Confidence:</strong> {prediction.confidence}</p>
-                    <p className="mt-2"><strong>Description:</strong> {
+                    <p className="mt-2"><strong>Description:</strong>
+                    {file && <p className="file-name">Selected file: {file.name}</p>}
+ {
       (() => {
         if (prediction.predicted_class === "St") {
           return "Stratus - Low, gray, and featureless clouds that often bring drizzle.";
