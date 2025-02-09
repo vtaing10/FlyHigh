@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)  # ✅ Allow requests from React
 
 # ✅ Load AI Model
-MODEL_PATH = os.path.join(os.path.dirname(__file__), "cloud_classifier4.keras")
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "cloud_classifier97_60.keras")
 model = load_model(MODEL_PATH)
 
 # ✅ Cloud class labels
