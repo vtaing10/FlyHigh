@@ -1,5 +1,28 @@
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import { useState } from 'react';
+
+function SPLoader() {
+  const [text, setText] = useState("Loading");
+  const [showImg, setShowImg] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setText("Loading.");
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div>
+      {showImg ? (
+        <img src="./spin.gif" alt="Loading..." />
+      ) : (
+        <h3>{text}</h3>
+      )}
+    </div>
+  );
+}
 
 export default function FileUploader() {
   const [file, setFile] = useState(null);
@@ -56,7 +79,7 @@ export default function FileUploader() {
 
       {status === 'uploading' && (
         <div className="flex items-center space-y-2">
-          <div className="spinner"></div>
+          <SPLoader />  {/* Show the spinner while uploading */}
           <p className="text-sm text-gray-600 ml-2">{uploadProgress}% uploaded</p>
         </div>
       )}
