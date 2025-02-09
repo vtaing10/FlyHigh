@@ -207,4 +207,51 @@ body {
   animation: fadeIn 1s ease-in-out forwards; /* Fade-in effect */
 }
 
+@keyframes greenRainbow {
+  0% { color: #006400; }   /* Dark Green */
+  10% { color: #008000; }  /* Green */
+  20% { color: #228B22; }  /* Forest Green */
+  30% { color: #32CD32; }  /* Lime Green */
+  40% { color: #00FF00; }  /* Pure Green */
+  50% { color: #7CFC00; }  /* Lawn Green */
+  60% { color: #ADFF2F; }  /* Green Yellow */
+  70% { color: #76B947; }  /* Fern Green */
+  80% { color: #2E8B57; }  /* Sea Green */
+  90% { color: #006A4E; }  /* Bottle Green */
+  100% { color: #006400; } /* Back to Dark Green */
+}
+
+.success-message {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  animation: greenRainbow 1.5s infinite linear;
+
+  
+}
+
+@keyframes redRainbow {
+  0% { color: #8B0000; }   /* Dark Red */
+  10% { color: #B22222; }  /* Firebrick */
+  20% { color: #DC143C; }  /* Crimson */
+  30% { color: #FF0000; }  /* Red */
+  40% { color: #FF4500; }  /* Orange Red */
+  50% { color: #FF6347; }  /* Tomato */
+  60% { color: #E32636; }  /* Alizarin Crimson */
+  70% { color: #CD5C5C; }  /* Indian Red */
+  80% { color: #A52A2A; }  /* Brown */
+  90% { color: #800000; }  /* Maroon */
+  100% { color: #8B0000; } /* Back to Dark Red */
+}
+
+.failure-message {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  animation: redRainbow 2s infinite linear;
+}
+
+
+
+
 
