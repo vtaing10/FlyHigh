@@ -44,7 +44,13 @@ export default function FileUploader() {
 
   return (
     <div className="space-y-2">
-      <input type="file" onChange={handleFileChange} />
+      <input type="file" onChange={handleFileChange} id="plus"style={{ display: 'none' }}/>
+      <label htmlFor="plus" className="square-label">
+        <div className="square">
+          <div className="plus horizontal"></div>
+          <div className="plus vertical"></div>
+        </div>
+      </label>
 
       {file && (
         <div className="mb-4 text-sm">
