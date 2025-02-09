@@ -15,12 +15,12 @@ body {
 .App {
   background: linear-gradient(to bottom, #81d4fa 50%, #ffffff 70%);
   text-align: center;
-  height: 100vh; /* Fixes the background movement */
+  height: 100vh; 
   width: 100vw;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Prevents unwanted scrolling */
-  position: relative; /* Ensures elements stay inside */
+  overflow: hidden; 
+  position: relative; 
 }
 
 
@@ -32,19 +32,19 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 120px;
-  font-family: 'Pacifico', cursive; /* Soft, playful font */
-  color: white; /* Main text color */
+  font-family: 'Pacifico', cursive; 
+  color: white; 
   letter-spacing: 2px;
   margin-top: 0px;
 
-  /* ✅ Thick Dark Blue Contour */
+  /* Thick Dark Blue Contour */
   text-shadow: 
     -4px -4px 0 #002366,  
     6px 9px 0 #002366,
 
-    /* ✅ Faded Dark Blue Shadow */
-    0px 10px 20px rgba(0, 35, 102, 0.5), /* Soft blue glow */
-    0px 20px 40px rgba(0, 35, 102, 0.3); /* Even softer fade */
+    /* Faded Dark Blue Shadow */
+    0px 10px 20px rgba(0, 35, 102, 0.5), 
+    0px 20px 40px rgba(0, 35, 102, 0.3); 
 }
 
 /************************************************* SQUARE CONTAINER ******************************************************************/
@@ -55,15 +55,15 @@ body {
   top:38%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 10%; /* Increased size */
+  width: 10%; 
   height: 18%;
-  background-color: #4285F4; /* Matching FlyHigh theme */
+  background-color: #4285F4; 
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 40px; /* Smooth rounded corners */
-  border: 5px solid #002366; /* Dark blue border */
-  box-shadow: 0px 10px 20px rgba(0, 35, 102, 0.5); /* Soft shadow effect */
+  border-radius: 40px; 
+  border: 5px solid #002366; 
+  box-shadow: 0px 10px 20px rgba(0, 35, 102, 0.5); 
   transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
   cursor: pointer;
 }
@@ -78,31 +78,31 @@ body {
 /* Horizontal Line of the Plus Sign */
 .plus.horizontal {
   position: absolute;
-  width: 50%; /* Takes half the width of the square */
-  height: 10%; /* Thickness */
+  width: 50%; 
+  height: 10%; 
   background-color: white;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 4px; /* Smoother edges */
+  border-radius: 4px; 
 }
 
 /* Vertical Line of the Plus Sign */
 .plus.vertical {
   position: absolute;
-  width: 10%; /* Thickness */
-  height: 50%; /* Takes half the height of the square */
+  width: 10%; 
+  height: 50%; 
   background-color: white;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 4px; /* Smoother edges */
+  border-radius: 4px;
 }
 
 /* Loading Component Positioning */
 .loading-container {
   position: absolute;
-  top: calc(45% + 180px); /* Positioned below the add-image-text */
+  top: calc(45% + 180px); 
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -164,13 +164,13 @@ body {
   right: 20px;
   width: 150px;
   height: 50px;
-  background-color: #4285F4; /* Matching theme */
+  background-color: #4285F4; 
   color: white;
   font-size: 18px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid #002366; /* Dark blue border */
+  border: 3px solid #002366; 
   border-radius: 12px;
   box-shadow: 0px 5px 15px rgba(0, 35, 102, 0.4);
   cursor: pointer;
@@ -188,7 +188,7 @@ body {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px); /* Slight upward motion */
+    transform: translateY(20px); 
   }
   to {
     opacity: 1;
@@ -203,22 +203,22 @@ body {
   font-size: 20px;
   width: 900px;
   left: 20%;
-  opacity: 0; /* Hidden initially */
-  animation: fadeIn 1s ease-in-out forwards; /* Fade-in effect */
+  opacity: 0; 
+  animation: fadeIn 1s ease-in-out forwards; 
 }
 
 @keyframes greenRainbow {
-  0% { color: #006400; }   /* Dark Green */
-  10% { color: #008000; }  /* Green */
-  20% { color: #228B22; }  /* Forest Green */
-  30% { color: #32CD32; }  /* Lime Green */
-  40% { color: #00FF00; }  /* Pure Green */
-  50% { color: #7CFC00; }  /* Lawn Green */
-  60% { color: #ADFF2F; }  /* Green Yellow */
-  70% { color: #76B947; }  /* Fern Green */
-  80% { color: #2E8B57; }  /* Sea Green */
-  90% { color: #006A4E; }  /* Bottle Green */
-  100% { color: #006400; } /* Back to Dark Green */
+  0% { color: #006400; }   
+  10% { color: #008000; } 
+  20% { color: #228B22; }  
+  30% { color: #32CD32; }  
+  40% { color: #00FF00; }  
+  50% { color: #7CFC00; }  
+  60% { color: #ADFF2F; }  
+  70% { color: #76B947; }  
+  80% { color: #2E8B57; }  
+  90% { color: #006A4E; }  
+  100% { color: #006400; } 
 }
 
 .success-message {
@@ -231,17 +231,17 @@ body {
 }
 
 @keyframes redRainbow {
-  0% { color: #8B0000; }   /* Dark Red */
-  10% { color: #B22222; }  /* Firebrick */
-  20% { color: #DC143C; }  /* Crimson */
-  30% { color: #FF0000; }  /* Red */
-  40% { color: #FF4500; }  /* Orange Red */
-  50% { color: #FF6347; }  /* Tomato */
-  60% { color: #E32636; }  /* Alizarin Crimson */
-  70% { color: #CD5C5C; }  /* Indian Red */
-  80% { color: #A52A2A; }  /* Brown */
-  90% { color: #800000; }  /* Maroon */
-  100% { color: #8B0000; } /* Back to Dark Red */
+  0% { color: #8B0000; }   
+  10% { color: #B22222; } 
+  20% { color: #DC143C; } 
+  30% { color: #FF0000; }  
+  40% { color: #FF4500; } 
+  50% { color: #FF6347; } 
+  60% { color: #E32636; }  
+  70% { color: #CD5C5C; }  
+  80% { color: #A52A2A; }  
+  90% { color: #800000; }  
+  100% { color: #8B0000; } 
 }
 
 .failure-message {
