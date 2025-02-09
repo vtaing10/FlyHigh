@@ -1,5 +1,28 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
+
+function SPLoader() {
+  const [text, setText] = useState("Loading");
+  const [showImg, setShowImg] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setText("Loading.");
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div>
+      {showImg ? (
+        <img src="./spin.gif" alt="Loading..." />
+      ) : (
+        <h3>{text}</h3>
+      )}
+    </div>
+  );
+}
 
 export default function FileUploader() {
     const [file, setFile] = useState(null);
@@ -99,3 +122,4 @@ export default function FileUploader() {
         </div>
     );
 }
+

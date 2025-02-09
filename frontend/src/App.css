@@ -1,11 +1,10 @@
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -13,20 +12,85 @@
   }
 }
 
+.App {
+  background: linear-gradient(to bottom, #81d4fa 30%, #ffffff 70%);
+  text-align: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0%;
+}
+
+body {
+  margin: 0;
+  padding: 0%;
+}
+
 .App-header {
-  background-color: #282c34;
+  background-color:transparent;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(255, 255, 255);
 }
+
+.FlyHigh {
+  text-align: center; /* Centers the text horizontally */
+  margin: 0 auto; /* Ensures proper centering in its container */
+  font-size: 100px; /* Optional: Adjust font size */
+  font-weight: bold; /* Optional: Make the text bold */
+  color: #000000;
+  padding-bottom: 5%;
+}
+
 
 .App-link {
   color: #61dafb;
 }
+
+header h1 {
+  text-align: center;
+}
+
+
+/* Square Container */
+.square {
+  position: relative; /* Allows positioning of the plus lines inside */
+  width: 100px; /* Size of the square */
+  height: 100px;
+  background-color: #81d4fa; /* Light blue color for the square */
+  display: flex;
+  justify-content: center; /* Centers the plus sign horizontally */
+  align-items: center; /* Centers the plus sign vertically */
+  margin: 20px auto; /* Center the square horizontally on the page */
+  border-radius: 24px; /* Optional: Add rounded corners */
+  border: 3px solid #000000; /* Optional: Border for the square */
+}
+
+/* Horizontal Line of the Plus Sign */
+.plus.horizontal {
+  position: absolute; /* Position it relative to the square */
+  width: 60%; /* Width of the horizontal bar */
+  height: 10%; /* Thickness of the horizontal bar */
+  background-color: #000000; /* Color of the plus sign */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%);
+}
+
+/* Vertical Line of the Plus Sign */
+.plus.vertical {
+  position: absolute; /* Position it relative to the square */
+  width: 10%; /* Thickness of the vertical bar */
+  height: 60%; /* Height of the vertical bar */
+  background-color: #000000; /* Color of the plus sign */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%);
+}
+
+
+
 
 @keyframes App-logo-spin {
   from {
